@@ -32,7 +32,15 @@ class MainController:
         
         # We assume identity details are handled by bootstrap internally
         # (For production, we'd pass real paths here, but defaults work for now)
-        outcome = run_bootstrap()
+        # FIX: Force local path for development so we don't look in /etc/
+        import os
+        from pathlib import Path
+        
+        cwd = os.getcwd()
+        outcome = run_bootstrap(
+            identity_path=Path(cwd) / "identity.json",
+            config_cache_dir=cwd
+        )
         
         if outcome.success:
             logger.info(f"Bootstrap PASS. Moving to {outcome.state.value}...")

@@ -1,0 +1,6 @@
+{
+    "device_id": "real-pi-PROD-001",
+    "secret": "top-secret-key-1234",
+    "profile": "agent-standard",
+    "config_version": 1
+}
