@@ -1,1 +1,4 @@
 pytest
+pyudev
+psutil
+Pillow
